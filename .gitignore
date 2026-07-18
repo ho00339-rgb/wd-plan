@@ -14,3 +14,9 @@
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# 원본 녹취(민감) — 로컬에만 보관, 배포/저장소에 올리지 않음
+결혼.txt
+
+.vercel
+.env*
