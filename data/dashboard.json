@@ -1,0 +1,41 @@
+{
+  "updatedAt": "2026-09-13",
+  "wedding": {
+    "date": "2027-05-15",
+    "confirmed": false,
+    "note": "2027년 5월 목표 (날짜 미확정 — 장소 예약 후 확정)"
+  },
+  "budget": {
+    "currency": "KRW",
+    "target": 25000000,
+    "planned": 26500000,
+    "items": [
+      { "label": "예식 (스드메 제외)", "amount": 6000000, "status": "todo" },
+      { "label": "웨딩 스냅", "amount": 1000000, "status": "estimate" },
+      { "label": "드레스 · 메이크업", "amount": 1500000, "status": "done" },
+      { "label": "상견례 식사", "amount": 1000000, "status": "done" },
+      { "label": "예물 · 웨딩링", "amount": 4000000, "status": "todo" },
+      { "label": "신혼여행 (유럽 2주)", "amount": 13000000, "status": "estimate" }
+    ]
+  },
+  "progress": [
+    { "label": "식 형태", "status": "done", "note": "초스몰 웨딩" },
+    { "label": "식 인원", "status": "doing", "note": "30명 미만" },
+    { "label": "홀 선정", "status": "todo", "note": "가장 큰 과제" },
+    { "label": "웨딩링", "status": "done", "note": "커스텀 / 업체는 서칭" },
+    { "label": "스냅 · 스드메", "status": "doing", "note": "지인 부탁, 업체 서칭" },
+    { "label": "상견례", "status": "doing", "note": "10월 진행 목표" },
+    { "label": "결혼 시기", "status": "doing", "note": "2027년 5월 목표" },
+    { "label": "신혼여행", "status": "done", "note": "유럽, 세부는 미정" },
+    { "label": "주거", "status": "done", "note": "송도" },
+    { "label": "예산", "status": "doing", "note": "2,500만원 목표, 견적 전" }
+  ],
+  "todos": [
+    { "text": "봐둔 공간에 웨딩 이용 조건 문의", "done": false, "due": "2026-09" },
+    { "text": "예식 장소 후보 2곳 추가 확보", "done": false, "due": "2026-09" },
+    { "text": "스냅 작가 견적 2~3곳", "done": false, "due": "2026-09" },
+    { "text": "사진 · 부케 부탁할 친구 두 명에게 타진", "done": false, "due": "2026-09" },
+    { "text": "양가 상견례 날짜 후보 3개 정리", "done": false, "due": "2026-09" },
+    { "text": "결혼 예산 통장 분리", "done": false, "due": "2026-09" }
+  ]
+}
