@@ -13,6 +13,16 @@ export default function Sidebar({ items }: { items: NavItem[] }) {
         <Link href="/" className={pathname === "/" ? "active" : ""}>
           🏠 홈 · 개요
         </Link>
+        <Link
+          href="/dashboard"
+          className={pathname === "/dashboard" ? "active" : ""}
+        >
+          📊 대시보드
+        </Link>
+        <Link href="/update" className={pathname === "/update" ? "active" : ""}>
+          ✏️ 업데이트
+        </Link>
+        <div className="sidebar-sep" />
         {items.map((it) => {
           const href = `/wiki/${it.slug}`;
           const active = decodeURIComponent(pathname) === href;
