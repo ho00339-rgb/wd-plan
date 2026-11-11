@@ -1,6 +1,6 @@
 import { getIndexPage, getNavPages } from "@/lib/wiki";
 import { getDashboard, DASHBOARD_PATH } from "@/lib/dashboard";
-import { chatJSON, OpenAIError, CHAT_MODEL } from "@/lib/openai";
+import { chatJSON, ClaudeError, CHAT_MODEL } from "@/lib/claude";
 import { checkUpdateSecret } from "@/lib/updateAuth";
 
 export const runtime = "nodejs";
@@ -9,6 +9,29 @@ export const maxDuration = 120;
 export type Proposal = {
   summary: string;
   changes: { path: string; content: string; reason: string }[];
+};
+
+/** 모델 응답 형식을 강제하는 JSON 스키마 (Proposal 과 같은 모양). */
+const PROPOSAL_SCHEMA = {
+  type: "object",
+  properties: {
+    summary: { type: "string" },
+    changes: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          path: { type: "string" },
+          content: { type: "string" },
+          reason: { type: "string" },
+        },
+        required: ["path", "content", "reason"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["summary", "changes"],
+  additionalProperties: false,
 };
 
 /** 이 경로들만 AI 가 고칠 수 있습니다. */
@@ -76,10 +99,10 @@ export async function POST(req: Request) {
 
   let proposal: Proposal;
   try {
-    proposal = await chatJSON<Proposal>(SYSTEM, user);
+    proposal = await chatJSON<Proposal>(SYSTEM, user, PROPOSAL_SCHEMA);
   } catch (e: unknown) {
     const msg =
-      e instanceof OpenAIError ? e.message : "수정안을 만드는 중 오류가 났어요.";
+      e instanceof ClaudeError ? e.message : "수정안을 만드는 중 오류가 났어요.";
     return Response.json({ error: msg }, { status: 502 });
   }
 
